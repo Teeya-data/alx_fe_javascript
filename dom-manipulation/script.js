@@ -117,17 +117,3 @@ showRandomQuote();
 
 // Create the add quote form dynamically
 createAddQuoteForm();
-
-// Create export button
-const exportButton = document.createElement('button');
-exportButton.textContent = 'Export Quotes as JSON';
-exportButton.onclick = exportToJsonFile;
-document.body.appendChild(exportButton);
-
-// Create import file input
-const importInput = document.createElement('input');
-importInput.type = 'file';
-importInput.id = 'importFile';
-importInput.accept = '.json';
-importInput.onchange = importFromJsonFile;
-document.body.appendChild(importInput);
