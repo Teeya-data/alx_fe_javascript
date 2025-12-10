@@ -4,9 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Quote Generator</title>
+  <style>
+    #syncStatus {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    #notificationArea {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+      display: none;
+    }
+    .conflict-resolution {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
+  
+  <div id="syncStatus">Sync Status: Ready</div>
+  <div id="notificationArea"></div>
+  <div id="conflictResolution" class="conflict-resolution"></div>
   
   <div>
     <select id="categoryFilter" onchange="filterQuotes()">
@@ -19,6 +47,7 @@
   <button id="newQuote">Show New Quote</button>
   
   <div>
+    <button onclick="syncQuotes()">Sync with Server</button>
     <button onclick="exportToJsonFile()">Export Quotes</button>
     <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
   </div>
