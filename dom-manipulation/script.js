@@ -161,6 +161,7 @@ async function syncQuotes() {
     }
     
     updateSyncStatus('Sync completed successfully');
+    alert('Quotes synced with server!');
     
   } catch (error) {
     console.error('Sync error:', error);
